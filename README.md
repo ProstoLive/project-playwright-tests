@@ -49,6 +49,15 @@ MANUAL_TESTS=1 HEADLESS=0 python -m pytest -s -v -m manual
 
 4. Откройте [описание Page Objects](docs/locators.md). Для объяснения удобно начать с `LoginPage` и показать, как локатор ограничен активным окном и выбранной вкладкой.
 
+### Полный отчёт Allure
+
+Эта команда собирает все восемь сценариев задания и отдельное контрольное падение в один отчёт. Для входа по телефону введите капчу и SMS в окне браузера. Ожидаемый результат — восемь успешных сценариев и одно демонстрационное падение. Генерацию HTML запустите отдельной командой после завершения pytest.
+
+```sh
+HEADLESS=0 MANUAL_TESTS=1 LOG_LEVEL=DEBUG python -m pytest -s -v autotests demo/test_report_demo.py --alluredir=allure-results/full --clean-alluredir
+allure generate allure-results/full --clean -o allure-report --single-file
+```
+
 ## Публикация репозитория
 
 Создайте пустой репозиторий в вашем Git-сервисе. Из корня проекта можно отправить коммит командой ниже, подставив адрес для Git из настроек репозитория.
