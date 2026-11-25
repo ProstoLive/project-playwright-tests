@@ -11,7 +11,7 @@
 | | Телефон и код с картинки | `input[name="phone"]` и `input[name="captcha_word"]` внутри телефонной панели. Появление `._window-code` подтверждает переход к SMS. |
 | | Ошибка поля | Относительный XPath `..` находит обёртку поля. По её классу `error` проверяется клиентская валидация, а по `._error-msg` читается ответ сервера. |
 | [Поиск](../ui/pages/search_page.py) | Поле поиска | Видимое `input[name="q"]`. Сайт меняет текст подсказки, поэтому используется имя поля. |
-| | Результат поиска | `.product-card` с видимой `.product-card__btn--add`. Тест читает заголовок из `a.product-card__title`, цену из `.product-card__costs span`. |
+| | Результат поиска | В каталоге используются карточки `._catalog-products-wr .product-card` с видимой кнопкой добавления. Заголовок берётся из `a.product-card__title`, цена из `.product-card__costs span`. В DigiSearch карточки ограничены сеткой `.digi-products-grid`. Название берётся из `a.digi-product__label`, цена из первого видимого элемента с суммой в рублях. |
 | [Карточка товара](../ui/pages/product_page.py) | Название, цена, артикул | `get_by_role("heading", level=1)`, `.detail-price__item.current`, пункт списка характеристик с подписью «Артикул». |
 | | Покупка | `.detail-buy__button.add_basket` и `.detail-buy__button.remove_basket` подтверждают состояния до и после добавления. |
 | [Корзина](../ui/pages/cart_page.py) | Позиция и удаление | `.basket-item` с нужным артикулом в `.basket-item__code`. `.basket-item__delete` ищется внутри этой позиции, чтобы удалить именно тестовый товар. |
